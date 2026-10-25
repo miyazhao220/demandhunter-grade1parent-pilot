@@ -343,6 +343,20 @@
       background: var(--accent);
     }
 
+    .supply-research { display: grid; gap: 10px; }
+    .supply-status { color: var(--text); font-weight: 700; }
+    .supply-group { border-top: 1px solid var(--line); padding-top: 9px; }
+    .supply-group:first-of-type { border-top: 0; padding-top: 0; }
+    .supply-group-title { font-size: 12px; font-weight: 700; color: var(--muted); margin-bottom: 6px; }
+    .supply-item { padding: 8px 0; }
+    .supply-item + .supply-item { border-top: 1px dashed var(--line); }
+    .supply-item-name { color: var(--text); font-weight: 700; }
+    .supply-item-meta { display: flex; flex-wrap: wrap; gap: 5px; margin: 5px 0; }
+    .supply-tag { padding: 2px 7px; border-radius: 999px; background: var(--soft); color: var(--muted); font-size: 11px; }
+    .supply-detail { color: var(--muted); line-height: 1.55; }
+    .supply-source-links { margin-top: 5px; display: flex; flex-wrap: wrap; gap: 8px; }
+    .supply-quote { margin-top: 5px; color: var(--muted); font-style: italic; }
+
     .cluster-list {
       display: grid;
       gap: 7px;
@@ -604,7 +618,7 @@
   <script>
     const RADAR_CONFIG = window.RADAR_CONFIG || JSON.parse(document.getElementById("radar-config")?.textContent || "{}");
     const AGE_MODE = RADAR_CONFIG.mode === "age";
-    const LEGACY_DATA_URL = "grade1-data.json?v=017";
+    const LEGACY_DATA_URL = "grade1-data.json?v=018";
     const DATA_URL = RADAR_CONFIG.dataUrl || (AGE_MODE ? RADAR_CONFIG.dataUrl : LEGACY_DATA_URL);
 
     const OPPORTUNITIES = [
@@ -1005,9 +1019,11 @@
         `<span class="pill">人群不符 ${formatNum(stats.out_of_scope_count)}</span>`,
         `<span class="pill">小红书主证据 ${formatNum(sourceCounts["小红书"])}</span>`,
         `<span class="pill">抖音主证据 ${formatNum(sourceCounts["抖音"])}</span>`,
+        mapData.supply_research ? `<span class="pill">供给已扫描 ${formatNum(mapData.supply_research.quality?.sub_need_count)}</span>` : "",
+        mapData.supply_research ? `<span class="pill">有供给 ${formatNum(mapData.supply_research.quality?.covered_sub_need_count)} / 无可靠供给 ${formatNum(mapData.supply_research.quality?.no_reliable_supply_count)}</span>` : "",
         `<span class="pill">帖子/视频 ${formatNum(stats.post_count)}</span>`,
         `<span class="pill">搜索第一页样本${scopeText ? ` · ${escapeHtml(scopeText)}` : ""}</span>`
-      ].join("");
+      ].filter(Boolean).join("");
     }
 
     function sampleScopeText() {
@@ -1303,7 +1319,7 @@
           <div class="fact"><div class="fact-label">什么场景</div><div class="fact-value">${escapeHtml(hypothesis.scene)}</div></div>
           <div class="fact"><div class="fact-label">遇到什么问题</div><div class="fact-value">${escapeHtml(hypothesis.problem)}</div></div>
           <div class="fact"><div class="fact-label">目前使用什么办法</div><div class="fact-value">${escapeHtml(hypothesis.current)}</div></div>
-          <div class="fact"><div class="fact-label">现有供给</div><div class="fact-value">${renderSupplySummary(hypothesis.supply)}</div></div>
+          <div class="fact"><div class="fact-label">现有供给</div><div class="fact-value">${renderSupplySummary(hypothesis.supply, hypothesis.supply_research)}</div></div>
           <div class="fact"><div class="fact-label">供给缺口</div><div class="fact-value">${escapeHtml(hypothesis.supplyGap)}</div></div>
         </div>
         <section class="section">
@@ -1394,7 +1410,81 @@
       ];
     }
 
-    function renderSupplySummary(supply) {
+    function supplyRelationshipLabel(value) {
+      return {
+        using: "正在使用",
+        used: "使用过",
+        seeking: "正在寻找",
+        considering: "正在考虑",
+        recommended: "被推荐",
+        rejected: "拒绝",
+        abandoned: "放弃/闲置",
+        refunded: "退费",
+        complained: "负向反馈"
+      }[value] || value;
+    }
+
+    function supplyFitLabel(value) {
+      return { direct: "直接适配", partial: "部分适配", adjacent: "邻近支持", counterexample: "反例" }[value] || value;
+    }
+
+    function supplyTypeLabel(value) {
+      return { product: "产品", service: "服务", content: "内容/资料", method: "方法", institution: "机构" }[value] || value;
+    }
+
+    function renderSupplyLink(link) {
+      const sources = (link.official_sources || []).map(source => {
+        const url = safeURL(source.url);
+        return url ? `<a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(source.title)}</a>` : "";
+      }).filter(Boolean);
+      const comments = link.comment_evidence || [];
+      const relationshipTags = Object.entries(link.relationship_counts || {}).map(([key, value]) =>
+        `<span class="supply-tag">${escapeHtml(supplyRelationshipLabel(key))} ${formatNum(value)}</span>`).join("");
+      const sentimentTags = Object.entries(link.sentiment_counts || {}).filter(([, value]) => value).map(([key, value]) =>
+        `<span class="supply-tag">${escapeHtml({ positive: "正向", negative: "负向", mixed: "褒贬混合", neutral: "中性", unknown: "倾向未知" }[key] || key)} ${formatNum(value)}</span>`).join("");
+      const quoteRows = comments.slice(0, 2).map(row => `<div class="supply-quote">“${escapeHtml(row.quote)}” · ${escapeHtml(supplyRelationshipLabel(row.relationship))}</div>`).join("");
+      return `<div class="supply-item">
+        <div class="supply-item-name">${escapeHtml(link.name)}</div>
+        <div class="supply-item-meta">
+          <span class="supply-tag">${escapeHtml(supplyTypeLabel(link.supply_type))}</span>
+          <span class="supply-tag">${escapeHtml(supplyFitLabel(link.fit_type))}</span>
+          ${relationshipTags}${sentimentTags}
+        </div>
+        <div class="supply-detail"><strong>解决：</strong>${escapeHtml(link.solves)}</div>
+        <div class="supply-detail"><strong>未覆盖：</strong>${escapeHtml(link.not_solved)}</div>
+        ${quoteRows}
+        ${sources.length ? `<div class="supply-source-links">${sources.join("")}</div>` : ""}
+      </div>`;
+    }
+
+    function renderSupplyResearch(research) {
+      const labels = {
+        covered: "已找到直接供给",
+        partially_covered: "已有供给但只覆盖部分环节",
+        method_only: "当前以方法供给为主",
+        no_reliable_supply: "尚未找到可靠供给"
+      };
+      const links = research?.links || [];
+      const userUsing = links.filter(link => (link.comment_evidence || []).some(row => ["using", "used"].includes(row.relationship)) && link.fit_type !== "counterexample");
+      const userSeeking = links.filter(link => (link.comment_evidence || []).some(row => ["seeking", "considering", "recommended"].includes(row.relationship)) && !userUsing.includes(link) && link.fit_type !== "counterexample");
+      const verified = links.filter(link => link.origin === "official" && link.fit_type !== "counterexample");
+      const counterexamples = links.filter(link => link.fit_type === "counterexample"
+        || (link.comment_evidence || []).some(row => ["rejected", "abandoned", "refunded", "complained"].includes(row.relationship)));
+      const usedIds = new Set([...userUsing, ...userSeeking, ...verified, ...counterexamples].map(link => link.supply_id));
+      const other = links.filter(link => !usedIds.has(link.supply_id));
+      const group = (title, rows) => rows.length ? `<div class="supply-group"><div class="supply-group-title">${title}</div>${rows.map(renderSupplyLink).join("")}</div>` : "";
+      return `<div class="supply-research">
+        <div><span class="supply-status">${escapeHtml(labels[research.coverage_status] || research.coverage_status)}</span><br>${escapeHtml(research.coverage_note || "")}</div>
+        ${group("用户已在用 / 使用过", userUsing)}
+        ${group("用户正在找 / 考虑", userSeeking)}
+        ${group("已核验产品、服务与方法", verified)}
+        ${group("负向反馈与反例", counterexamples)}
+        ${group("其他关联供给", other)}
+      </div>`;
+    }
+
+    function renderSupplySummary(supply, research) {
+      if (research) return renderSupplyResearch(research);
       const rows = [];
       if (supply.mentioned.length) rows.push(`<li><strong>评论/相关原帖已出现：</strong>${escapeHtml(supply.mentioned.join("、"))}</li>`);
       if (supply.publicCandidates.length) rows.push(`<li><strong>公开供给候选：</strong>${escapeHtml(supply.publicCandidates.join("；"))}</li>`);

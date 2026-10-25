@@ -1,129 +1,1056 @@
 {
-  "schema_version": "2026-10-22.grade1-supply-catalog.v1",
+  "schema_version": "opportunity-radar.supply-catalog.v2",
   "audience": "小学一年级家长",
-  "purpose": "把一年级家长机会雷达中提到或应核验的供给侧对象结构化，供页面、复盘和后续人工供给扫描复用。",
-  "evidence_boundary": "本文件只记录候选供给类型、代表产品和待核验问题；不等于评论家长真实使用过，也不证明产品有效。",
-  "last_updated": "2026-10-22",
+  "purpose": "兼容旧流程的已核验官方/权威供给摘要；完整供给证据与需求映射见 grade1-supply-assets-v1.json。",
+  "evidence_boundary": "官方或权威来源只证明公开能力、规则或服务路径，不证明用户实际使用效果。",
+  "last_updated": "2026-10-26",
+  "detailed_asset": "grade1-supply-assets-v1.json",
+  "official_sources": [
+    {
+      "source_id": "SRC-PEP-G1-TEXTBOOK",
+      "title": "人教版一年级上册语文教材介绍",
+      "url": "https://www.pep.com.cn/products/jc/jks/201608/t20160823_1369629.shtml",
+      "source_type": "official_publisher",
+      "supports": "一年级拼音、识字、字词句、亲子共读和课外阅读指导的教材范围与方法。"
+    },
+    {
+      "source_id": "SRC-PEP-POINTREAD",
+      "title": "人教点读",
+      "url": "https://www.pep.com.cn/products/sz/ydxx/",
+      "source_type": "official_product",
+      "supports": "统编版和人教版教材数字资源、教材同步讲解和学习工具。"
+    },
+    {
+      "source_id": "SRC-PEP-HAPPY-READING",
+      "title": "快乐读书吧课程化丛书",
+      "url": "https://www.pep.com.cn/products/tj/ppcs/jf/kldsb/",
+      "source_type": "official_publisher",
+      "supports": "按年级书目、阅读指导、人物与情节梳理及阅读实践活动。"
+    },
+    {
+      "source_id": "SRC-PEP-HAPPY-AUDIO",
+      "title": "快乐读书吧有声课程",
+      "url": "https://www.pep.com.cn/rjdt/rjdt/202111/t20211125_1972048.shtml",
+      "source_type": "official_publisher",
+      "supports": "低年级领读、跟读、单元总结和有声阅读辅助。"
+    },
+    {
+      "source_id": "SRC-QJMY-PRODUCTS",
+      "title": "亲近母语分级阅读与日有所诵",
+      "url": "https://www.qjmy.cn/products/",
+      "source_type": "official_product",
+      "supports": "按年龄和年级组织的中文分级阅读、诵读材料与阅读测评。"
+    },
+    {
+      "source_id": "SRC-HONGEN-PINYIN",
+      "title": "洪恩拼音",
+      "url": "https://www.ihuman.com/pinyin/",
+      "source_type": "official_product",
+      "supports": "拼音音形互动、拼读、儿歌和拼音阅读绘本。"
+    },
+    {
+      "source_id": "SRC-HONGEN-LITERACY",
+      "title": "洪恩识字",
+      "url": "https://www.ihuman.com/shizi",
+      "source_type": "official_product",
+      "supports": "字源字义动画、复习内容、认读写用和分级阅读。"
+    },
+    {
+      "source_id": "SRC-HONGEN-AIREAD",
+      "title": "洪恩AI快读",
+      "url": "https://www.ihuman.com/aireading/",
+      "source_type": "official_product",
+      "supports": "识字、绘本、古诗、拼音和口才等阅读内容及学习闭环。"
+    },
+    {
+      "source_id": "SRC-XIAOYUAN-AI",
+      "title": "小猿AI",
+      "url": "https://xiaoyuankousuan.com/",
+      "source_type": "official_product",
+      "supports": "中小学教育AI、口算批改、学习应用及学习机产品入口。"
+    },
+    {
+      "source_id": "SRC-ZUOYEBANG-APP",
+      "title": "作业帮",
+      "url": "https://www.zybang.com/",
+      "source_type": "official_product",
+      "supports": "中小学生学习工具、作业辅导和智能硬件。"
+    },
+    {
+      "source_id": "SRC-XUEERSI-PAD",
+      "title": "学而思学习机",
+      "url": "https://xpad.xueersi.com/",
+      "source_type": "official_product",
+      "supports": "精准学习、作业辅导、AI对话与学习路径。"
+    },
+    {
+      "source_id": "SRC-ZUOYEBANG-PAD",
+      "title": "作业帮自主学习机",
+      "url": "https://smart.zuoyebang.com/eduIpad",
+      "source_type": "official_product",
+      "supports": "同步课程、学习练习和AI学习机。"
+    },
+    {
+      "source_id": "SRC-IFLYTEK-PAD",
+      "title": "科大讯飞AI学习机",
+      "url": "https://edu.iflytek.com/solution/family/learning-pad",
+      "source_type": "official_product",
+      "supports": "AI精准学、课本资源、练习、英语听说和分级阅读。"
+    },
+    {
+      "source_id": "SRC-TOTGUARD-DESK",
+      "title": "护童学习桌椅",
+      "url": "https://totguard.cn/",
+      "source_type": "official_product",
+      "supports": "可升降和可倾斜儿童学习桌椅及相关服务。"
+    },
+    {
+      "source_id": "SRC-2M2-DESK",
+      "title": "2平米儿童学习桌椅",
+      "url": "https://www.2m2.cc/",
+      "source_type": "official_product",
+      "supports": "成长型儿童学习桌椅、学习椅和学习空间产品。"
+    },
+    {
+      "source_id": "SRC-MOE-EYE-HEALTH",
+      "title": "儿童青少年近视防控核心知识",
+      "url": "https://www.nhc.gov.cn/fys/c100078/202307/a210193cfd774009a1db0399d713fec9.shtml",
+      "source_type": "government_guidance",
+      "supports": "一尺一拳一寸、台灯加背景光、视屏时长和户外活动等方法。"
+    },
+    {
+      "source_id": "SRC-MOE-WRITING",
+      "title": "中小学规范汉字书写教育",
+      "url": "https://www.moe.gov.cn/srcsite/A18/s7066/202410/t20241022_1158740.html",
+      "source_type": "government_guidance",
+      "supports": "正确坐姿、执笔姿势、笔顺、结构和低年级书写习惯。"
+    },
+    {
+      "source_id": "SRC-MOE-HOMEWORK",
+      "title": "义务教育学校作业管理",
+      "url": "https://www.moe.gov.cn/srcsite/A06/s3321/202104/t20210425_528077.html",
+      "source_type": "government_guidance",
+      "supports": "校内作业指导、自主学习与时间管理、家校协同和不额外布置家庭作业。"
+    },
+    {
+      "source_id": "SRC-MOE-SLEEP",
+      "title": "中小学生睡眠管理",
+      "url": "https://www.moe.gov.cn/srcsite/A06/s3321/202104/t20210401_523901.html",
+      "source_type": "government_guidance",
+      "supports": "作业统筹、按时就寝、避免作业挤占睡眠和家校睡眠管理。"
+    },
+    {
+      "source_id": "SRC-FAMILY-EDUCATION-LAW",
+      "title": "家庭教育促进法",
+      "url": "https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/bgt/art/2023/art_5e7f62e58b53493da4a434e840eef947.html",
+      "source_type": "law",
+      "supports": "尊重儿童发展状况与意见、培养习惯、家庭教育和家校配合。"
+    },
+    {
+      "source_id": "SRC-MOE-SCHOOL-TRANSITION",
+      "title": "幼儿园与小学科学衔接指导意见",
+      "url": "https://www.moe.gov.cn/srcsite/A06/s3327/202104/t20210408_525137.html",
+      "source_type": "government_guidance",
+      "supports": "身心、生活、社会与学习准备，避免超前学习，设置一年级适应期。"
+    },
+    {
+      "source_id": "SRC-MOE-AFTERSCHOOL",
+      "title": "义务教育课后服务规范",
+      "url": "https://www.moe.gov.cn/srcsite/A06/s3321/202401/t20240104_1098002.html",
+      "source_type": "government_guidance",
+      "supports": "校内课后服务、体育美育阅读活动、辅导答疑和拓展指导。"
+    },
+    {
+      "source_id": "SRC-MOE-AFTERSCHOOL-BASE",
+      "title": "中小学生课后服务指导意见",
+      "url": "https://hudong.moe.gov.cn/srcsite/A06/s3325/201703/t20170304_298203.html",
+      "source_type": "government_guidance",
+      "supports": "作业、自主阅读、体育艺术、兴趣小组、免费辅导与安全交接。"
+    },
+    {
+      "source_id": "SRC-MOE-BULLYING",
+      "title": "防治中小学生欺凌和暴力指导意见",
+      "url": "https://www.moe.gov.cn/srcsite/A06/s3325/201611/t20161111_288490.html",
+      "source_type": "government_guidance",
+      "supports": "家校沟通、异常表现识别、欺凌预防与联动处理。"
+    },
+    {
+      "source_id": "SRC-MOE-SCHOOL-PROTECTION",
+      "title": "未成年人学校保护规定",
+      "url": "https://hudong.moe.gov.cn/jyb_xxgk/xxgk/zhengce/guizhang/202112/t20211206_584982.html",
+      "source_type": "regulation",
+      "supports": "学校保护、欺凌调查、异常情绪沟通和家长指导。"
+    },
+    {
+      "source_id": "SRC-MOE-STUDENT-REGISTRATION",
+      "title": "中小学生学籍管理办法与系统",
+      "url": "https://www.moe.gov.cn/jyb_xwfb/s271/202502/t20250207_1177643.html",
+      "source_type": "government_service",
+      "supports": "学籍建立、属地管理、学校和教育行政部门办理路径。"
+    },
+    {
+      "source_id": "SRC-NHC-ADHD",
+      "title": "注意缺陷多动障碍临床评估资料",
+      "url": "https://www.nhc.gov.cn/cms-search/downFiles/9944cdd142574ea59c541d552fe345a9.pdf",
+      "source_type": "medical_guidance",
+      "supports": "ADHD需全面临床评估，采集核心症状和多场景表现。"
+    },
+    {
+      "source_id": "SRC-NHC-MENTAL-REFERRAL",
+      "title": "儿童学习困难和精神心理问题就医提示",
+      "url": "https://www.nhc.gov.cn/xcs/c100122/202502/b7b7f78f8b8b437abcb6dfca58e9f7c5.shtml",
+      "source_type": "medical_guidance",
+      "supports": "长期学习困难、拒学或疑似精神心理问题时由专业医师评估。"
+    },
+    {
+      "source_id": "SRC-NHC-GROWTH",
+      "title": "7岁以下儿童生长标准",
+      "url": "https://www.nhc.gov.cn/wjw/c100179/202211/5522cdcd113a4c3a89e0acf318818460.shtml",
+      "source_type": "medical_standard",
+      "supports": "儿童年龄别身高、体重和营养状况的标准化评价。"
+    },
+    {
+      "source_id": "SRC-NHC-RESPIRATORY",
+      "title": "儿童上呼吸道感染防治知识",
+      "url": "https://www.nhc.gov.cn/wjw/jbyfykz/201602/14d7aa65097b4ccfbfe7d59007bb60f1.shtml",
+      "source_type": "medical_guidance",
+      "supports": "儿童普通感冒表现、病程和需警惕的并发症。"
+    },
+    {
+      "source_id": "SRC-MOE-INTEREST-SAFETY",
+      "title": "体育艺术类校外培训安全提醒",
+      "url": "https://www.moe.gov.cn/jyb_xwfb/gzdt_gzdt/s5987/202311/t20231111_1090139.html",
+      "source_type": "government_guidance",
+      "supports": "按兴趣、年龄和身体状况选择课程，核验机构许可、师资和场地安全。"
+    },
+    {
+      "source_id": "SRC-MOE-SPORT-AFTERSCHOOL",
+      "title": "学校体育课后服务",
+      "url": "https://www.moe.gov.cn/jyb_xxgk/moe_1777/moe_1779/202207/t20220707_644222.html",
+      "source_type": "government_guidance",
+      "supports": "按学段和基础设置体育班型、社团、兴趣小组和校内运动供给。"
+    }
+  ],
   "items": [
     {
-      "supply_id": "SUP-G1-FOUNDATION-APP",
-      "name": "洪恩拼音/识字、悟空拼音/识字、魔比识字、四五快读等基础学习 App/内容",
-      "category": "拼音识字与基础学习 App",
-      "related_opportunity_ids": ["learning-foundation-loop"],
-      "related_theme_ids": ["T01"],
-      "related_cluster_ids": ["T01-C3", "T01-C1", "T01-C2"],
-      "solves": "帮助家长给孩子做拼音、识字、阅读、口算等基础练习，提供课程化内容或闯关练习。",
-      "observed_from": ["评论/原帖提及", "公开供给候选"],
-      "open_questions": ["是否能诊断孩子真实卡点，而不只是增加练习量", "是否能把家长不会讲的问题转成可执行讲解", "孩子是否能持续使用并迁移到校内作业"],
-      "status": "待公开资料复核"
+      "supply_id": "SUP-PEP-TEXTBOOK-G1",
+      "name": "人教版一年级语文教材体系",
+      "supply_type": "content",
+      "category": "教材同步方法",
+      "source_ids": [
+        "SRC-PEP-G1-TEXTBOOK"
+      ],
+      "capabilities": [
+        "拼音与识字学习范围",
+        "字词句综合练习",
+        "和大人一起读",
+        "阅读兴趣与习惯"
+      ],
+      "delivery_mode": "教材与教学活动",
+      "themes": [
+        "T01",
+        "T05",
+        "T06"
+      ],
+      "limitations": [
+        "不是额外教辅或个性化诊断工具"
+      ],
+      "origin": "official",
+      "checked_at": "2026-10-26"
     },
     {
-      "supply_id": "SUP-G1-PRACTICE-CORRECTION",
-      "name": "小猿口算、作业帮口算、拍照批改、专项练习册、试卷和资料包",
-      "category": "练习与批改工具/资料",
-      "related_opportunity_ids": ["learning-foundation-loop", "homework-execution-system"],
-      "related_theme_ids": ["T01", "T02"],
-      "related_cluster_ids": ["T01-C2", "T01-C3", "T02-C1", "T02-C3"],
-      "solves": "让家长更快获得可打印、可练、可批改的内容，降低找题和订正成本。",
-      "observed_from": ["评论/原帖提及", "公开供给候选"],
-      "open_questions": ["资料需求背后的具体学习卡点是什么", "家长需要题目、讲解、批改还是复盘计划", "低质量资料和营销引流如何过滤"],
-      "status": "待公开资料复核"
+      "supply_id": "SUP-PEP-POINTREAD",
+      "name": "人教点读",
+      "supply_type": "product",
+      "category": "教材同步App",
+      "source_ids": [
+        "SRC-PEP-POINTREAD",
+        "SRC-PEP-HAPPY-AUDIO"
+      ],
+      "capabilities": [
+        "教材同步讲解",
+        "课文朗读",
+        "生字学习",
+        "快乐读书吧有声课程"
+      ],
+      "delivery_mode": "App",
+      "themes": [
+        "T01",
+        "T12"
+      ],
+      "limitations": [
+        "官方能力不证明能替代家长精读陪伴"
+      ],
+      "origin": "official",
+      "checked_at": "2026-10-26"
     },
     {
-      "supply_id": "SUP-G1-LEARNING-DEVICE",
-      "name": "学而思学习机/学而思 AI、小猿 AI、作业帮学习机、科大讯飞、希沃、步步高等学习机/学习平板",
-      "category": "学习机与 AI 辅导硬件",
-      "related_opportunity_ids": ["learning-tools-selection", "learning-foundation-loop"],
-      "related_theme_ids": ["T12", "T01"],
-      "related_cluster_ids": ["T12-C1", "T12-C2", "T01-C3"],
-      "solves": "提供讲题、同步学习、AI 答疑、资源聚合和一定程度的家长替代陪练。",
-      "observed_from": ["评论/原帖提及", "公开供给候选"],
-      "open_questions": ["真实家庭使用后是否减少家长陪学时间", "不同学习基础孩子是否适配", "价格、内容会员和闲置风险如何影响决策"],
-      "status": "待公开资料复核"
+      "supply_id": "SUP-PEP-HAPPY-READING",
+      "name": "快乐读书吧课程化丛书",
+      "supply_type": "content",
+      "category": "低年级阅读书目",
+      "source_ids": [
+        "SRC-PEP-HAPPY-READING"
+      ],
+      "capabilities": [
+        "按年级书目",
+        "阅读指导",
+        "人物情节梳理",
+        "阅读实践"
+      ],
+      "delivery_mode": "图书",
+      "themes": [
+        "T01",
+        "T12"
+      ],
+      "limitations": [
+        "不等同于每日文章精读软件"
+      ],
+      "origin": "official",
+      "checked_at": "2026-10-26"
     },
     {
-      "supply_id": "SUP-G1-HOMEWORK-HABIT",
-      "name": "计时器、计划表、习惯打卡工具、任务拆解表、亲子沟通课程",
-      "category": "作业执行与习惯工具",
-      "related_opportunity_ids": ["homework-execution-system"],
-      "related_theme_ids": ["T02"],
-      "related_cluster_ids": ["T02-C1", "T02-C2", "T02-C3"],
-      "solves": "帮助家庭把作业、订正、听写、阅读打卡等任务拆解并推进，减少催促和冲突。",
-      "observed_from": ["公开供给候选"],
-      "open_questions": ["家长最想降低作业时长、提醒次数还是亲子冲突", "孩子能否自执行还是仍依赖家长", "工具是否能和校内作业反馈闭环"],
-      "status": "待公开资料复核"
+      "supply_id": "SUP-QJMY-DAILY",
+      "name": "日有所诵与亲近母语分级阅读",
+      "supply_type": "content",
+      "category": "诵读与分级阅读",
+      "source_ids": [
+        "SRC-QJMY-PRODUCTS"
+      ],
+      "capabilities": [
+        "按年级诵读",
+        "中文分级阅读",
+        "诵读示范",
+        "阅读测评"
+      ],
+      "delivery_mode": "图书与数字内容",
+      "themes": [
+        "T01",
+        "T12"
+      ],
+      "limitations": [
+        "诵读、分级阅读与文章精读是不同任务"
+      ],
+      "origin": "official",
+      "checked_at": "2026-10-26"
     },
     {
-      "supply_id": "SUP-G1-ATTENTION-INTERVENTION",
-      "name": "专注力训练课程、感统训练机构、儿童发展评估、家庭训练清单",
-      "category": "专注力/发展评估与干预",
-      "related_opportunity_ids": ["attention-and-intervention-path"],
-      "related_theme_ids": ["T04"],
-      "related_cluster_ids": ["T04-C1", "T04-C2", "T04-C3"],
-      "solves": "帮助家长判断走神、坐不住、久练不会等表现是否需要专业评估或家庭训练。",
-      "observed_from": ["评论/原帖提及", "公开供给候选"],
-      "open_questions": ["哪些情况只是学习习惯问题，哪些应分流到专业评估", "轻量筛查如何避免医疗化误导", "家庭训练能否持续执行并被老师反馈验证"],
-      "status": "待公开资料复核"
+      "supply_id": "SUP-HONGEN-PINYIN",
+      "name": "洪恩拼音",
+      "supply_type": "product",
+      "category": "拼音学习App",
+      "source_ids": [
+        "SRC-HONGEN-PINYIN"
+      ],
+      "capabilities": [
+        "拼音音形互动",
+        "拼读组合",
+        "儿歌",
+        "拼音阅读绘本"
+      ],
+      "delivery_mode": "App",
+      "themes": [
+        "T01",
+        "T05"
+      ],
+      "limitations": [
+        "不能直接提供纸质打印资料或真人发音诊断"
+      ],
+      "origin": "official",
+      "checked_at": "2026-10-26"
     },
     {
-      "supply_id": "SUP-G1-AFTER-SCHOOL-CARE",
-      "name": "校内课后服务、社区托管、晚辅导、一对一上门/线上辅导、接送看护服务",
-      "category": "课后托管与辅导服务",
-      "related_opportunity_ids": ["after-school-care-decision"],
-      "related_theme_ids": ["T07"],
-      "related_cluster_ids": ["T07-C1", "T07-C2", "T07-C3"],
-      "solves": "解决放学后接送、看管、作业完成和辅导资源不足。",
-      "observed_from": ["公开供给候选"],
-      "open_questions": ["家长选择时最看重安全、完成作业、学会程度、距离还是价格", "服务过程和效果能否被透明记录", "机会更像信息比较、服务撮合还是机构端工具"],
-      "status": "待公开资料复核"
+      "supply_id": "SUP-HONGEN-LITERACY",
+      "name": "洪恩识字",
+      "supply_type": "product",
+      "category": "识字App",
+      "source_ids": [
+        "SRC-HONGEN-LITERACY"
+      ],
+      "capabilities": [
+        "字源字义动画",
+        "认读写用",
+        "复习",
+        "分级阅读"
+      ],
+      "delivery_mode": "App",
+      "themes": [
+        "T01",
+        "T12"
+      ],
+      "limitations": [
+        "产品内容不等同于校内考试高频字表"
+      ],
+      "origin": "official",
+      "checked_at": "2026-10-26"
     },
     {
-      "supply_id": "SUP-G1-SCHOOL-COMMUNICATION",
-      "name": "家校沟通 App、班级群、沟通话术、事件记录、儿童心理咨询、校园安全课程",
-      "category": "家校沟通与校园安全支持",
-      "related_opportunity_ids": ["school-feedback-and-safety"],
-      "related_theme_ids": ["T06"],
-      "related_cluster_ids": ["T06-C1", "T06-C2", "T06-C3"],
-      "solves": "帮助家长在老师反馈、孩子表达异常、同伴冲突或疑似不当对待时判断如何沟通和升级。",
-      "observed_from": ["公开供给候选"],
-      "open_questions": ["哪些情况需要话术，哪些需要事件记录或外部介入", "如何保护隐私并避免激化家校关系", "T06-C2 目前证据不足，是否需访谈验证"],
-      "status": "待公开资料复核"
+      "supply_id": "SUP-HONGEN-AIREAD",
+      "name": "洪恩AI快读",
+      "supply_type": "product",
+      "category": "阅读启蒙App",
+      "source_ids": [
+        "SRC-HONGEN-AIREAD"
+      ],
+      "capabilities": [
+        "识字",
+        "绘本",
+        "古诗",
+        "拼音",
+        "口才学习闭环"
+      ],
+      "delivery_mode": "App",
+      "themes": [
+        "T01",
+        "T12"
+      ],
+      "limitations": [
+        "对一年级校内精读批注的适配需验证"
+      ],
+      "origin": "official",
+      "checked_at": "2026-10-26"
     },
     {
-      "supply_id": "SUP-G1-STUDY-SPACE",
-      "name": "学习桌椅、护眼灯/大路灯、词典笔、错题机/打印机、书柜收纳",
-      "category": "学习空间与硬件消费决策",
-      "related_opportunity_ids": ["learning-tools-selection"],
-      "related_theme_ids": ["T12"],
-      "related_cluster_ids": ["T12-C1", "T12-C2", "T12-C3"],
-      "solves": "帮助家长解决学习空间、护眼、打印、收纳和工具配置决策。",
-      "observed_from": ["评论/原帖提及", "公开供给候选"],
-      "open_questions": ["哪些是刚需，哪些是种草焦虑", "家长更看重价格、品牌、空间适配还是减少陪学负担", "买回家后的真实使用频次和闲置原因是什么"],
-      "status": "待公开资料复核"
+      "supply_id": "SUP-XIAOYUAN-AI",
+      "name": "小猿AI及学习工具",
+      "supply_type": "product",
+      "category": "学习工具与AI辅导",
+      "source_ids": [
+        "SRC-XIAOYUAN-AI"
+      ],
+      "capabilities": [
+        "口算批改",
+        "学习AI",
+        "全场景学习工具"
+      ],
+      "delivery_mode": "App与硬件",
+      "themes": [
+        "T01",
+        "T12"
+      ],
+      "limitations": [
+        "具体机型能力和收费需按产品页单独核验"
+      ],
+      "origin": "official",
+      "checked_at": "2026-10-26"
     },
     {
-      "supply_id": "SUP-G1-TRANSITION-CONTENT",
-      "name": "幼小衔接课程、入学准备清单、时间管理表、家长社群、开学陪跑内容",
-      "category": "幼小衔接与入学适应内容/服务",
-      "related_opportunity_ids": ["school-transition-rhythm"],
-      "related_theme_ids": ["T03", "T05"],
-      "related_cluster_ids": ["T03-C1", "T03-C2", "T05-C1"],
-      "solves": "帮助家长判断入学前后准备程度、作息调整、超前学习边界和适应问题。",
-      "observed_from": ["公开供给候选"],
-      "open_questions": ["家长真正需要清单、时间规划、适应判断还是持续陪跑", "不同家庭变量如何影响路径", "是否能形成开学前后 30-60 天低负担陪跑产品"],
-      "status": "待公开资料复核"
+      "supply_id": "SUP-ZUOYEBANG-APP",
+      "name": "作业帮学习工具",
+      "supply_type": "product",
+      "category": "作业辅导工具",
+      "source_ids": [
+        "SRC-ZUOYEBANG-APP"
+      ],
+      "capabilities": [
+        "作业辅导",
+        "学习工具",
+        "智能硬件入口"
+      ],
+      "delivery_mode": "App",
+      "themes": [
+        "T01",
+        "T02",
+        "T12"
+      ],
+      "limitations": [
+        "评论已出现批改错误和功能找不到，需保留负向反馈"
+      ],
+      "origin": "official",
+      "checked_at": "2026-10-26"
     },
     {
-      "supply_id": "SUP-G1-INTEREST-CLASS",
-      "name": "兴趣班、试听课、机构对比、测评推荐、时间规划工具",
-      "category": "兴趣班与素养决策",
-      "related_opportunity_ids": ["interest-class-decision"],
-      "related_theme_ids": ["T13"],
-      "related_cluster_ids": ["T13-C1", "T13-C2", "T13-C3"],
-      "solves": "帮助家长在运动、美术、书法、音乐、口才等兴趣班之间做取舍和节奏安排。",
-      "observed_from": ["公开供给候选"],
-      "open_questions": ["家长最在意升学、身体素质、兴趣探索还是社交比较", "不同城市和预算下是否有可复用取舍框架", "供给缺口是测评推荐、试听管理、时间规划还是口碑透明度"],
-      "status": "待公开资料复核"
+      "supply_id": "SUP-XUEERSI-PAD",
+      "name": "学而思学习机",
+      "supply_type": "product",
+      "category": "AI学习机",
+      "source_ids": [
+        "SRC-XUEERSI-PAD"
+      ],
+      "capabilities": [
+        "精准学习",
+        "作业辅导",
+        "AI对话",
+        "学习路径"
+      ],
+      "delivery_mode": "学习机",
+      "themes": [
+        "T01",
+        "T12"
+      ],
+      "limitations": [
+        "是否减少家长盯学需由用户长期使用验证"
+      ],
+      "origin": "official",
+      "checked_at": "2026-10-26"
+    },
+    {
+      "supply_id": "SUP-ZUOYEBANG-PAD",
+      "name": "作业帮学习机",
+      "supply_type": "product",
+      "category": "AI学习机",
+      "source_ids": [
+        "SRC-ZUOYEBANG-PAD"
+      ],
+      "capabilities": [
+        "同步课程",
+        "学练",
+        "AI辅导"
+      ],
+      "delivery_mode": "学习机",
+      "themes": [
+        "T01",
+        "T12"
+      ],
+      "limitations": [
+        "不同型号、内存、功能和价格需分开核验"
+      ],
+      "origin": "official",
+      "checked_at": "2026-10-26"
+    },
+    {
+      "supply_id": "SUP-IFLYTEK-PAD",
+      "name": "科大讯飞AI学习机",
+      "supply_type": "product",
+      "category": "AI学习机",
+      "source_ids": [
+        "SRC-IFLYTEK-PAD"
+      ],
+      "capabilities": [
+        "AI精准学",
+        "课本资源",
+        "练习",
+        "英语听说",
+        "分级阅读"
+      ],
+      "delivery_mode": "学习机",
+      "themes": [
+        "T01",
+        "T12"
+      ],
+      "limitations": [
+        "高价格和低年级适配需按家庭场景验证"
+      ],
+      "origin": "official",
+      "checked_at": "2026-10-26"
+    },
+    {
+      "supply_id": "SUP-TOTGUARD-DESK",
+      "name": "护童儿童学习桌椅",
+      "supply_type": "product",
+      "category": "学习桌椅",
+      "source_ids": [
+        "SRC-TOTGUARD-DESK"
+      ],
+      "capabilities": [
+        "升降桌椅",
+        "倾斜桌板",
+        "学习空间配置"
+      ],
+      "delivery_mode": "家具",
+      "themes": [
+        "T12"
+      ],
+      "limitations": [
+        "具体材质、尺寸、安装、价格和灯具组合需按型号核验"
+      ],
+      "origin": "official",
+      "checked_at": "2026-10-26"
+    },
+    {
+      "supply_id": "SUP-2M2-DESK",
+      "name": "2平米儿童学习桌椅",
+      "supply_type": "product",
+      "category": "学习桌椅",
+      "source_ids": [
+        "SRC-2M2-DESK"
+      ],
+      "capabilities": [
+        "成长型桌椅",
+        "学习椅",
+        "学习空间产品"
+      ],
+      "delivery_mode": "家具",
+      "themes": [
+        "T12"
+      ],
+      "limitations": [
+        "具体型号、空间适配和价格需按家庭尺寸核验"
+      ],
+      "origin": "official",
+      "checked_at": "2026-10-26"
+    },
+    {
+      "supply_id": "METHOD-EYE-LIGHT",
+      "name": "科学学习照明与用眼方法",
+      "supply_type": "method",
+      "category": "用眼与照明",
+      "source_ids": [
+        "SRC-MOE-EYE-HEALTH"
+      ],
+      "capabilities": [
+        "一尺一拳一寸",
+        "台灯加背景光",
+        "控制视屏时长",
+        "户外活动"
+      ],
+      "delivery_mode": "家庭方法",
+      "themes": [
+        "T03",
+        "T12"
+      ],
+      "limitations": [
+        "不是台灯品牌推荐或视力诊断"
+      ],
+      "origin": "official",
+      "checked_at": "2026-10-26"
+    },
+    {
+      "supply_id": "METHOD-WRITING-POSTURE",
+      "name": "规范坐姿、握笔与低年级书写练习",
+      "supply_type": "method",
+      "category": "书写习惯",
+      "source_ids": [
+        "SRC-MOE-WRITING"
+      ],
+      "capabilities": [
+        "执笔姿势",
+        "坐姿",
+        "笔顺结构",
+        "书写习惯"
+      ],
+      "delivery_mode": "学校与家庭方法",
+      "themes": [
+        "T01",
+        "T02",
+        "T13"
+      ],
+      "limitations": [
+        "持续错误姿势或身体问题需专业评估"
+      ],
+      "origin": "official",
+      "checked_at": "2026-10-26"
+    },
+    {
+      "supply_id": "METHOD-HOMEWORK-MANAGEMENT",
+      "name": "作业统筹与家庭任务管理",
+      "supply_type": "method",
+      "category": "作业管理",
+      "source_ids": [
+        "SRC-MOE-HOMEWORK"
+      ],
+      "capabilities": [
+        "校内完成书面作业",
+        "自主学习与时间管理",
+        "家庭不额外加作业",
+        "课余活动安排"
+      ],
+      "delivery_mode": "学校与家庭方法",
+      "themes": [
+        "T02",
+        "T03",
+        "T07"
+      ],
+      "limitations": [
+        "不提供个体家庭的实时陪作业服务"
+      ],
+      "origin": "official",
+      "checked_at": "2026-10-26"
+    },
+    {
+      "supply_id": "METHOD-SLEEP-CUTOFF",
+      "name": "按时就寝与作业中断原则",
+      "supply_type": "method",
+      "category": "睡眠与作息",
+      "source_ids": [
+        "SRC-MOE-SLEEP"
+      ],
+      "capabilities": [
+        "避免作业挤占睡眠",
+        "家校睡眠管理",
+        "到就寝时间停止作业"
+      ],
+      "delivery_mode": "家庭与学校方法",
+      "themes": [
+        "T02",
+        "T03"
+      ],
+      "limitations": [
+        "不能解决孩子具体拖拉原因"
+      ],
+      "origin": "official",
+      "checked_at": "2026-10-26"
+    },
+    {
+      "supply_id": "METHOD-FAMILY-EDUCATION",
+      "name": "尊重儿童意见与正向家庭教育方法",
+      "supply_type": "method",
+      "category": "家庭教育",
+      "source_ids": [
+        "SRC-FAMILY-EDUCATION-LAW"
+      ],
+      "capabilities": [
+        "培养习惯",
+        "尊重儿童发展与意见",
+        "家庭责任",
+        "家校配合"
+      ],
+      "delivery_mode": "家庭方法与公益指导",
+      "themes": [
+        "T02",
+        "T03",
+        "T05",
+        "T06",
+        "T13"
+      ],
+      "limitations": [
+        "法律原则需要转化为具体家庭行动"
+      ],
+      "origin": "official",
+      "checked_at": "2026-10-26"
+    },
+    {
+      "supply_id": "METHOD-SCHOOL-TRANSITION",
+      "name": "身心生活社会学习四维入学准备",
+      "supply_type": "method",
+      "category": "幼小衔接",
+      "source_ids": [
+        "SRC-MOE-SCHOOL-TRANSITION"
+      ],
+      "capabilities": [
+        "身心准备",
+        "生活准备",
+        "社会准备",
+        "学习准备",
+        "避免超前学习"
+      ],
+      "delivery_mode": "幼儿园、小学和家庭方法",
+      "themes": [
+        "T03",
+        "T05"
+      ],
+      "limitations": [
+        "不提供单一统一计划表，需按家庭和学校调整"
+      ],
+      "origin": "official",
+      "checked_at": "2026-10-26"
+    },
+    {
+      "supply_id": "SERVICE-SCHOOL-AFTERSCHOOL",
+      "name": "校内课后服务",
+      "supply_type": "service",
+      "category": "课后照护与活动",
+      "source_ids": [
+        "SRC-MOE-AFTERSCHOOL",
+        "SRC-MOE-AFTERSCHOOL-BASE"
+      ],
+      "capabilities": [
+        "作业与答疑",
+        "自主阅读",
+        "体育美育",
+        "兴趣小组",
+        "安全交接"
+      ],
+      "delivery_mode": "学校服务",
+      "themes": [
+        "T02",
+        "T03",
+        "T07",
+        "T13"
+      ],
+      "limitations": [
+        "具体开设时间、收费和内容由当地学校决定"
+      ],
+      "origin": "official",
+      "checked_at": "2026-10-26"
+    },
+    {
+      "supply_id": "METHOD-BULLYING-RESPONSE",
+      "name": "学生欺凌识别、报告与家校联动路径",
+      "supply_type": "method",
+      "category": "校园安全",
+      "source_ids": [
+        "SRC-MOE-BULLYING",
+        "SRC-MOE-SCHOOL-PROTECTION"
+      ],
+      "capabilities": [
+        "异常表现识别",
+        "家校沟通",
+        "学校报告",
+        "欺凌调查与处理"
+      ],
+      "delivery_mode": "学校、家庭与行政联动",
+      "themes": [
+        "T06"
+      ],
+      "limitations": [
+        "不能替代紧急情况下报警、医疗或法律支持"
+      ],
+      "origin": "official",
+      "checked_at": "2026-10-26"
+    },
+    {
+      "supply_id": "SERVICE-OFFICIAL-ENROLLMENT",
+      "name": "当地教育行政部门和学校官方入学渠道",
+      "supply_type": "service",
+      "category": "入学报名与学籍",
+      "source_ids": [
+        "SRC-MOE-STUDENT-REGISTRATION"
+      ],
+      "capabilities": [
+        "入学资格规则",
+        "报名通知",
+        "材料核验",
+        "学籍建立"
+      ],
+      "delivery_mode": "政府和学校服务",
+      "themes": [
+        "T09"
+      ],
+      "limitations": [
+        "入学政策属地化，必须核验当地当年官方渠道"
+      ],
+      "origin": "official",
+      "checked_at": "2026-10-26"
+    },
+    {
+      "supply_id": "SERVICE-ADHD-ASSESSMENT",
+      "name": "儿童发育行为或精神专科临床评估",
+      "supply_type": "service",
+      "category": "注意力与发育评估",
+      "source_ids": [
+        "SRC-NHC-ADHD",
+        "SRC-NHC-MENTAL-REFERRAL"
+      ],
+      "capabilities": [
+        "病史采集",
+        "多场景核心症状评估",
+        "专业诊断与分流"
+      ],
+      "delivery_mode": "医疗服务",
+      "themes": [
+        "T04"
+      ],
+      "limitations": [
+        "线上量表或训练产品不能替代全面临床评估"
+      ],
+      "origin": "official",
+      "checked_at": "2026-10-26"
+    },
+    {
+      "supply_id": "METHOD-GROWTH-STANDARD",
+      "name": "儿童生长标准与专业测量评估",
+      "supply_type": "method",
+      "category": "生长发育",
+      "source_ids": [
+        "SRC-NHC-GROWTH"
+      ],
+      "capabilities": [
+        "年龄别身高体重评价",
+        "营养状况判断",
+        "标准化测量"
+      ],
+      "delivery_mode": "医疗保健方法",
+      "themes": [
+        "T11"
+      ],
+      "limitations": [
+        "单次家庭测量不能替代连续生长曲线和专业评估"
+      ],
+      "origin": "official",
+      "checked_at": "2026-10-26"
+    },
+    {
+      "supply_id": "METHOD-RESPIRATORY-CARE",
+      "name": "儿童呼吸道感染观察与就医路径",
+      "supply_type": "method",
+      "category": "儿童呼吸健康",
+      "source_ids": [
+        "SRC-NHC-RESPIRATORY"
+      ],
+      "capabilities": [
+        "常见症状观察",
+        "病程认知",
+        "并发症警示",
+        "及时就医"
+      ],
+      "delivery_mode": "家庭观察与医疗服务",
+      "themes": [
+        "T11"
+      ],
+      "limitations": [
+        "不提供个体诊断或用药建议"
+      ],
+      "origin": "official",
+      "checked_at": "2026-10-26"
+    },
+    {
+      "supply_id": "METHOD-INTEREST-CHOICE",
+      "name": "按兴趣、年龄、身体状况和机构合规性选择兴趣班",
+      "supply_type": "method",
+      "category": "兴趣班决策",
+      "source_ids": [
+        "SRC-MOE-INTEREST-SAFETY"
+      ],
+      "capabilities": [
+        "兴趣与年龄匹配",
+        "机构许可核验",
+        "师资与场地安全",
+        "避免盲目跟风"
+      ],
+      "delivery_mode": "家庭决策方法",
+      "themes": [
+        "T13"
+      ],
+      "limitations": [
+        "不能替代具体城市和机构的实地试听"
+      ],
+      "origin": "official",
+      "checked_at": "2026-10-26"
+    },
+    {
+      "supply_id": "SERVICE-SCHOOL-SPORT-ART",
+      "name": "学校体育艺术社团和课后兴趣活动",
+      "supply_type": "service",
+      "category": "校内兴趣供给",
+      "source_ids": [
+        "SRC-MOE-SPORT-AFTERSCHOOL"
+      ],
+      "capabilities": [
+        "零起点体育班型",
+        "体育社团",
+        "兴趣小组",
+        "校内活动"
+      ],
+      "delivery_mode": "学校服务",
+      "themes": [
+        "T07",
+        "T13"
+      ],
+      "limitations": [
+        "各校项目和名额不同"
+      ],
+      "origin": "official",
+      "checked_at": "2026-10-26"
+    },
+    {
+      "supply_id": "METHOD-COMMENT-DAILY-READING",
+      "name": "每日少量阅读、诵读和亲子共读",
+      "supply_type": "method",
+      "category": "家庭阅读方法",
+      "source_ids": [],
+      "capabilities": [
+        "降低启动门槛",
+        "形成日更习惯",
+        "亲子共读",
+        "重复阅读"
+      ],
+      "delivery_mode": "评论中家庭方法",
+      "themes": [
+        "T01"
+      ],
+      "limitations": [
+        "效果来自个别家庭经验，需结合孩子阅读能力"
+      ],
+      "origin": "official",
+      "checked_at": "2026-10-26"
+    },
+    {
+      "supply_id": "METHOD-COMMENT-TASK-SPLIT",
+      "name": "拆分作业、控制题量并保留睡眠休息",
+      "supply_type": "method",
+      "category": "家庭作业方法",
+      "source_ids": [
+        "SRC-MOE-HOMEWORK",
+        "SRC-MOE-SLEEP"
+      ],
+      "capabilities": [
+        "按页数拆分",
+        "控制额外练习",
+        "优先学校作业",
+        "守住就寝时间"
+      ],
+      "delivery_mode": "评论与政策共同支持的方法",
+      "themes": [
+        "T02",
+        "T03"
+      ],
+      "limitations": [
+        "需要区分作业量问题与注意力、能力或情绪问题"
+      ],
+      "origin": "official",
+      "checked_at": "2026-10-26"
+    },
+    {
+      "supply_id": "METHOD-COMMENT-PLAN-REWARD",
+      "name": "任务计划、协商和正向奖励",
+      "supply_type": "method",
+      "category": "家庭执行方法",
+      "source_ids": [
+        "SRC-FAMILY-EDUCATION-LAW"
+      ],
+      "capabilities": [
+        "共同约定任务",
+        "可视化计划",
+        "正向强化",
+        "减少反复催促"
+      ],
+      "delivery_mode": "评论中家庭方法",
+      "themes": [
+        "T02",
+        "T03"
+      ],
+      "limitations": [
+        "奖励使用不当可能变成外部控制，需观察持续性"
+      ],
+      "origin": "official",
+      "checked_at": "2026-10-26"
+    },
+    {
+      "supply_id": "METHOD-COMMENT-HOME-CARE",
+      "name": "家长接送、户外活动与居家作业组合",
+      "supply_type": "method",
+      "category": "放学后家庭照护",
+      "source_ids": [],
+      "capabilities": [
+        "不报晚托",
+        "安排户外",
+        "家庭完成作业",
+        "调整作息"
+      ],
+      "delivery_mode": "评论中家庭方法",
+      "themes": [
+        "T03",
+        "T07"
+      ],
+      "limitations": [
+        "依赖家长时间与照护能力"
+      ],
+      "origin": "official",
+      "checked_at": "2026-10-26"
+    },
+    {
+      "supply_id": "METHOD-COMMENT-CLASS-REDUCTION",
+      "name": "随年级、负担与孩子反馈精简兴趣班",
+      "supply_type": "method",
+      "category": "兴趣班组合管理",
+      "source_ids": [
+        "SRC-MOE-INTEREST-SAFETY"
+      ],
+      "capabilities": [
+        "减少课程数量",
+        "保留孩子感兴趣项目",
+        "平衡作业、运动与休息"
+      ],
+      "delivery_mode": "评论中家庭方法",
+      "themes": [
+        "T13"
+      ],
+      "limitations": [
+        "不提供具体项目效果判断"
+      ],
+      "origin": "official",
+      "checked_at": "2026-10-26"
     }
   ]
 }
