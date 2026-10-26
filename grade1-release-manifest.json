@@ -1,0 +1,125 @@
+{
+  "schema_version": "opportunity-radar.release-manifest.v1",
+  "release_id": "grade1-alpha-v018-supply",
+  "generated_at": "2026-10-26T09:29:16.883Z",
+  "audience_id": "grade1-parent",
+  "audience_label": "小学一年级家长",
+  "public_url": "https://miyazhao220.github.io/demandhunter-grade1parent-pilot/",
+  "frontend_data_tag": "v018",
+  "demand_asset_version": "grade1-semantic-v1-20261023",
+  "demand_schema_version": "grade1-semantic-v1-20261023",
+  "supply_schema_version": "opportunity-radar.supply-assets.v1",
+  "supply_run_id": "RUN-20261026-grade1-supply-v1",
+  "stats": {
+    "raw_evidence": 3821,
+    "primary_evidence": 548,
+    "indirect_evidence": 185,
+    "themes": 13,
+    "clusters": 49,
+    "sub_needs": 167,
+    "opportunities": 167,
+    "supply_entities": 728,
+    "official_sources": 32,
+    "comment_supply_evidence": 869,
+    "demand_supply_links": 647,
+    "covered_sub_needs": 150,
+    "no_reliable_supply": 17
+  },
+  "artifacts": [
+    {
+      "path": "index.html",
+      "role": "frontend",
+      "bytes": 97249,
+      "sha256": "8bd8e432f1e281db65cf1570cae5d6f0685cff78bc5b4132e438d87e569ca951"
+    },
+    {
+      "path": "grade1-data.json",
+      "role": "publication_bundle",
+      "bytes": 14357683,
+      "sha256": "907c02d5c6c5e4d4782f9ebe30547e9e23de27966f36afac3f70355ac00013b6"
+    },
+    {
+      "path": "grade1-asset-v1.json",
+      "role": "canonical_asset",
+      "bytes": 10291535,
+      "sha256": "b5fed25633a1c8fc3c155f6cecd5803203ef5f40e3cc38d8edbd69768b4e4cee"
+    },
+    {
+      "path": "grade1-supply-assets-v1.json",
+      "role": "supply_asset",
+      "bytes": 1648171,
+      "sha256": "749f976d39f849e17c64fc2666d125cddb47cf54611eb89493f56882e3cb1508"
+    },
+    {
+      "path": "grade1-supply-catalog.json",
+      "role": "supply_compatibility_catalog",
+      "bytes": 31269,
+      "sha256": "44d0ede15a64ea2ff10f693855f4a47d924eb7d79e884bb3dbef1a17df547854"
+    },
+    {
+      "path": "README.md",
+      "role": "release_readme",
+      "bytes": 5815,
+      "sha256": "753d62a1f02cb17e65208c8372900e1d1e11fe6b0d3289a20d41616e566ef113"
+    },
+    {
+      "path": "calibration/grade1-semantic-repair-summary.json",
+      "role": "demand_qa",
+      "bytes": 22935,
+      "sha256": "4f23642029305129d619b0896cfd96320b2e676e7e250ef8560f00c386bc26f1"
+    },
+    {
+      "path": "calibration/grade1-supply-research-summary.json",
+      "role": "supply_qa",
+      "bytes": 1032,
+      "sha256": "13721c02a7b4eeadba5310d1ccab8443f0f2818316785b36931654cfb069c874"
+    }
+  ],
+  "pipeline": {
+    "demand": [
+      "parent-radar-pilot/scripts/semantic-repair-grade1.mjs",
+      "scripts/export-canonical-asset-v1.mjs"
+    ],
+    "supply": [
+      "parent-radar-pilot/scripts/build-grade1-supply-assets.mjs"
+    ],
+    "validation": [
+      "scripts/validate-asset-v1.mjs",
+      "scripts/validate-supply-assets-v1.mjs",
+      "parent-radar-pilot/scripts/prepare-grade1-release.mjs"
+    ],
+    "contracts": [
+      "contracts/v1/asset-contract.json",
+      "contracts/v1/source-adapter-contract.json",
+      "contracts/v1/sampling-plan-contract.json",
+      "contracts/v1/supply-asset-contract.json",
+      "contracts/v1/visualization-contract.json"
+    ]
+  },
+  "checks": [
+    {
+      "check_id": "CANONICAL_ASSET_VALID",
+      "passed": true
+    },
+    {
+      "check_id": "SUPPLY_ASSET_VALID",
+      "passed": true
+    },
+    {
+      "check_id": "PUBLICATION_CANONICAL_MATCH",
+      "passed": true
+    },
+    {
+      "check_id": "SUPPLY_PUBLICATION_MATCH",
+      "passed": true
+    },
+    {
+      "check_id": "FRONTEND_DATA_TAG_MATCH",
+      "passed": true
+    },
+    {
+      "check_id": "DEMAND_COUNT_RECONCILIATION",
+      "passed": true
+    }
+  ]
+}
